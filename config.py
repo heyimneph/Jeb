@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 from discord.ext.commands import is_owner, Context
 
 # Load environment variables
-load_dotenv("config.env.txt")
+load_dotenv("config.env")
 
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
 DISCORD_PREFIX = "%"
