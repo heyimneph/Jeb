@@ -657,12 +657,14 @@ class MusicPlayer(commands.Cog):
 
         try:
             if bot_voice_state.is_playing():
-                bot_voice_state._pause()
+                bot_voice_state.pause()
+                self._pause()
                 await interaction.response.send_message("Paused the song.", ephemeral=True)
                 if self.update_progress_loop.is_running():
                     self.update_progress_loop.stop()
             elif bot_voice_state.is_paused():
                 bot_voice_state.resume()
+                self.resume()
                 await interaction.response.send_message("Resumed the song.", ephemeral=True)
                 if not self.update_progress_loop.is_running():
                     self.update_progress_loop.start()
